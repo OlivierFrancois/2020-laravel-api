@@ -10,4 +10,6 @@ class Game extends Model
 {
     use HasFactory;
     use SoftDeletes;
+
+    protected $fillable = ['title', 'summary', 'released'];
 }

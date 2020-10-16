@@ -26,7 +26,14 @@ class GameController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $this->validate($request, [
+            'title' => 'required',
+            'summary' => 'nullable',
+            'released' => 'required'
+        ]);
+
+        $game = Game::create($data);
+        return $game;
     }
 
     /**
@@ -49,7 +56,14 @@ class GameController extends Controller
      */
     public function update(Request $request, Game $game)
     {
-        //
+        $data = $this->validate($request, [
+            'title' => 'required',
+            'summary' => 'nullable',
+            'released' => 'required'
+        ]);
+
+        $game = $data;
+        return $game;
     }
 
     /**
